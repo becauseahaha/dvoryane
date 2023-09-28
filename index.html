@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/datepicker.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/custom-select.css">
+</head>
+<body class="init">
+    <div class="logo-start" id="fullscreen-logo"><img src="./images/logo.svg" class="logo-start__image"></div>
+    <header class="header layout">
+        <div class="navigation header__navigation">
+            <button class="navigation__burger js-popup-show" data-target="popup-menu" id="btn-show-menu">
+                <svg class="icon-svg"><use href="#icon-burger"></use></svg>
+            </button>
+            <div class="navigation__logo-wrapper">
+                <img src="./images/logo.svg" class="navigation__logo">
+                <img src="./images/logo-small.svg" class="navigation__logo-small">
+            </div>
+            <div class="navigation__languages text-3">
+                <a href="#" class="navigation__language">Ru</a>
+                <a href="#" class="navigation__language navigation__language_active link">En</a>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="header__buttons text-1">
+                <button class="header__btn btn btn_dark js-popup-show" data-target="popup-reservation">Резерв</button>
+                <button class="header__btn btn btn_light js-popup-show" data-target="popup-contacts">Контакты</button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="main__about about layout" id="about">
+            <div class="about__col-left">
+                <div class="about__description-wrapper js-fade-in animate-text-init" data-classes="animate-text">
+                    <h2 class="about__title">Дворяне — ресторан современной русской кухни</h2>
+                    <p>Классические рецепты в новом прочтении,<br> изысканный стиль и дворянский дух <br>
+                    Санкт-Петербурга в историческом центре города</p>
+                </div>
+                <picture>
+                    <source srcset="./images/photo-1.webp 1x, ./images/photo-1@2x.webp 1.5x" type="image/webp">
+                    <img src="./images/photo-1.jpg" srcset="./images/photo-1@2x.jpg 1.5x" class="about__image-left">
+                </picture>
+            </div>
+            <div class="about__col-right">
+                <picture>
+                    <source srcset="./images/photo-2.webp 1x, ./images/photo-2@2x.webp 1.5x" type="image/webp">
+                    <img src="./images/photo-2.jpg" srcset="./images/photo-2@2x.jpg 1.5x" class="about__image-right">
+                </picture>
+            </div>
+        </section>
+        <section class="main__cuisine cuisine layout" id="cuisine">
+            <div class="cuisine__description-wrapper js-fade-in animate-text-init" data-classes="animate-text">
+                <h2 class="cuisine__title">Классическая кухня в авторском исполнении</h2>
+                <p>Сохранение традиций и самобытности петербургской кухни через переосмысление знакомых и любимых блюд в неожиданных сочетаниях вкусов и ароматов</p>
+                <button class="cuisine__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-menu"></use></svg>Меню</button>
+            </div>
+            <div class="cuisine__photos">
+                <div class="cuisine__photos-1">
+                    <picture class="cuisine__image cuisine__image-1">
+                        <source srcset="./images/photo-3.webp 1x, ./images/photo-3@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-3.jpg" srcset="./images/photo-3@2x.jpg 1.5x" loading="lazy">
+                    </picture>
+                </div>
+                <div class="cuisine__photos-2">
+                    <picture class="cuisine__image cuisine__image-2">
+                        <source srcset="./images/photo-4.webp 1x, ./images/photo-4@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-4.jpg" srcset="./images/photo-4@2x.jpg 1.5x" loading="lazy">
+                    </picture>
+                    <picture class="cuisine__image cuisine__image-3">
+                        <source srcset="./images/photo-5.webp 1x, ./images/photo-5@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-5.jpg" srcset="./images/photo-5@2x.jpg 1.5x" loading="lazy">
+                    </picture>
+                    <picture class="cuisine__image cuisine__image-4">
+                        <source srcset="./images/photo-6.webp 1x, ./images/photo-6@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-6.jpg" srcset="./images/photo-6@2x.jpg 1.5x" loading="lazy">
+                    </picture>
+                </div>
+                <div class="cuisine__photos-3">
+                    <picture class="cuisine__image cuisine__image-5">
+                        <source srcset="./images/photo-7.webp 1x, ./images/photo-7@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-7.jpg" srcset="./images/photo-7@2x.jpg 1.5x" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <section class="chef">
+            <div class="layout">
+                <div class="chef__wrapper">
+                    <img src="./images/chef.png" class="chef__image" alt="">
+                    <div class="js-fade-in animate-text-init" data-classes="animate-text">
+                        <h2 class="chef__title">Обращение шефа</h2>
+                        <p>Только самые свежие и натуральные фермерские продукты от локальных производителей, сезонные овощи и фрукты, которые дарят уникальный гастрономический опыт</p>
+                        <p class="chef__sign">Подпись</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bar layout" id="bar">
+            <div class="bar__col-left">
+                <div class="bar__description-wrapper js-fade-in animate-text-init" data-classes="animate-text">
+                    <h2 class="bar__title">Карта вин, созданных мастерами виноделия России</h2>
+                    <p class="bar__description">Классические сорта и редкие винные находки из разных регионов страны, воплотившие в себе душу русской природы и талант наших виноделов</p>
+                    <button class="bar__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-bottle"></use></svg>Барная карта</button>
+                </div>
+            </div>
+            <div class="bar__col-right">
+                <picture>
+                    <source srcset="./images/photo-8.webp 1x, ./images/photo-8@2x.webp 1.5x" type="image/webp">
+                    <img src="./images/photo-8.jpg" srcset="./images/photo-8@2x.jpg 1.5x" class="bar__image">
+                </picture>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__contacts contacts">
+            <div class="contacts__wrapper layout">
+                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-map"></use></svg>Санкт-Петербург, ул. Почтамтская, 1</div>
+                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-phone"></use></svg><a href="phone:+7 (812) 330 02 03">+7 (812) 330 02 03</a></div>
+                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-instagram"></use></svg><a href="https://instagram.com/dvoryane.rest">dvoryane.rest</a></div>
+                <div class="contacts__item"><svg class="contacts__icon contacts__icon_clock icon-svg"><use href="#icon-clock"></use></svg>Ежедневно с 12:00 до 23:00</div>
+                <button class="btn btn_dark js-popup-show" data-target="popup-reservation">Резерв</button>
+            </div>  
+        </div>
+        <div class="footer__links">
+            <div class="footer__links-wrapper layout">
+                <a href="#" class="link">Политика конфиденциальности</a>
+                <a href="#" class="link">Реквизиты организации</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup" id="popup-menu">
+        <div class="popup__menu menu-popup">
+            <div class="menu-popup__wrapper">
+                <button class="menu-popup__item js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button>
+                <button class="menu-popup__item js-scroll-to" data-target="about">О ресторане</button>
+                <button class="menu-popup__item js-scroll-to" data-target="cuisine">Кухня</button>
+                <button class="menu-popup__item js-scroll-to" data-target="bar">Винная карта</button>
+                <button class="menu-popup__item js-popup-show" data-target="popup-reservation">Резерв</a>
+                <button class="menu-popup__item js-popup-show" data-target="popup-contacts">Контакты</button>
+                <div class="menu-popup__item menu-popup__item-languages">
+                    <a href="#" class="menu-popup__link menu-popup__link_active link">Ru</a>
+                    <a href="#" class="menu-popup__link link">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup-contacts">
+        <div class="popup__centered">
+            <div class="popup__contacts contacts-popup">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <div class="contacts-popup__title title-1">Контакты</div>
+                <div class="contacts contacts_popup">
+                    <div class="contacts__wrapper layout">
+                        <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-map"></use></svg>Санкт-Петербург, ул. Почтамтская, 1</div>
+                        <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-phone"></use></svg><a href="phone:+7 (812) 330 02 03">+7 (812) 330 02 03</a></div>
+                        <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-instagram"></use></svg><a href="https://instagram.com/dvoryane.rest">dvoryane.rest</a></div>
+                    </div>  
+                </div>
+                <div class="contacts-popup__map"><iframe src="https://yandex.ru/map-widget/v1/?ll=30.304106%2C59.932705&mode=search&oid=106559427719&ol=biz&z=15" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup-reservation-success">
+        <div class="popup__centered">
+            <div class="popup__reservation-success reservation-success-popup">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <img src="./images/photo-success.jpg" sizes="(max-width: 480px) 480px" srcset="./images/photo-success-mobile.jpg 480w, ./images/photo-success.jpg" class="reservation-success-popup__image">
+                <div class="reservation-success-popup__text">
+                    <div class="reservation-success-popup__title title-1">Спасибо за выбор нашего ресторана</div>
+                    <p>Наш менеджер свяжется с вами в ближайшее время для подтверждения брони</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup-reservation">
+        <div class="popup__centered">
+            <div class="popup__reservation reservation-popup">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <img src="./images/photo-reservation.jpg" sizes="(max-width: 480px) 480px" srcset="./images/photo-reservation-mobile.jpg 480w, ./images/photo-reservation.jpg" class="reservation-popup__image">
+                <div class="reservation-popup__title title-1">Зарезервируйте столик</div>
+                <form method="post" action="mailer.php" class="reservation-popup__form" id="reservation-form"> 
+                    <div class="input-wrapper reservation-popup__form-item-1">
+                        <input type="text" name="name" class="input" required>
+                        <span class="input-placeholder">Введите имя</span>
+                    </div>
+                    <div class="input-wrapper reservation-popup__form-item-2">
+                        <input type="text" name="phone" class="input" required>
+                        <span class="input-placeholder">Введите телефон</span>
+                    </div>
+                    <div class="input-wrapper reservation-popup__form-item-3">
+                        <input type="number" name="guests" class="input" min="1" autocomplete="off" required>
+                        <span class="input-placeholder">Кол-во гостей</span>
+                    </div>
+                    <div class="input-wrapper reservation-popup__form-item-4">
+                        <input type="text" name="date" class="input js-datepicker" autocomplete="off" required>
+                        <span class="input-placeholder">Выбор даты</span>
+                    </div>
+                    <div class="input-wrapper reservation-popup__form-item-5">
+                        <select name="time">
+                            <option value="">Выбор времени</option>
+                            <option value="10:00">10:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:00">16:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:30">21:30</option>
+                            <option value="22:00">22:00</option>
+                            <option value="22:30">22:30</option>
+                        </select>
+                    </div>
+                    <div class="reservation-popup__form-item-6">
+                        <button type="submit" class="btn btn_dark">Резерв</button>
+                    </div>
+                </form>
+                <div class="reservation-popup__small-text">Нажимая на кнопку Резерв, вы соглашаетесь с <a href="#" class="link">политикой конфиденциальности</a></div>
+            </div>
+        </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <g id="icon-burger" stroke="currentColor">
+                <path d="M8.33337 11.6665H31.6667" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8.33337 20H25" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8.33337 28.3335H18.3334" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <g id="icon-arrow" fill="currentColor">
+                <path d="M6.66675 20L5.95964 19.2929L5.25253 20L5.95964 20.7071L6.66675 20ZM31.6667 21C32.219 21 32.6667 20.5523 32.6667 20C32.6667 19.4477 32.219 19 31.6667 19V21ZM15.9596 9.29289L5.95964 19.2929L7.37385 20.7071L17.3739 10.7071L15.9596 9.29289ZM5.95964 20.7071L15.9596 30.7071L17.3739 29.2929L7.37385 19.2929L5.95964 20.7071ZM6.66675 21H31.6667V19H6.66675V21Z" />
+            </g>
+            <g id="icon-cross" stroke="currentColor">
+                <path d="M30 10L10 30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 10L30 30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g id="icon-map">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4011 22.1048C14.1474 21.2161 21 17.3095 21 10.7285C21 5.75795 16.9706 1.72852 12 1.72852C7.02944 1.72852 3 5.75795 3 10.7285C3 17.3095 9.85259 21.2161 11.5989 22.1048C11.8528 22.2339 12.1472 22.2339 12.4011 22.1048ZM12 14.5857C14.1302 14.5857 15.8571 12.8588 15.8571 10.7285C15.8571 8.59827 14.1302 6.87137 12 6.87137C9.86976 6.87137 8.14286 8.59827 8.14286 10.7285C8.14286 12.8588 9.86976 14.5857 12 14.5857Z" />
+            </g>
+            <g id="icon-phone">
+                <path d="M3.67962 3.37301L5.34552 1.70711C5.73605 1.31658 6.36921 1.31658 6.75974 1.70711L10.1876 5.135C10.5782 5.52552 10.5782 6.15869 10.1876 6.54921L7.869 8.86784C7.5072 9.22964 7.4175 9.78237 7.64633 10.24C8.96914 12.8856 11.1144 15.0309 13.76 16.3537C14.2176 16.5825 14.7704 16.4928 15.1322 16.131L17.4508 13.8124C17.8413 13.4218 18.4745 13.4218 18.865 13.8124L22.2929 17.2403C22.6834 17.6308 22.6834 18.264 22.2929 18.6545L20.627 20.3204C18.5156 22.4317 15.1731 22.6693 12.7843 20.8777L9.89173 18.7083C8.1482 17.4006 6.59938 15.8518 5.29173 14.1083L3.12226 11.2156C1.33072 8.82693 1.56827 5.48436 3.67962 3.37301Z" />
+            </g>
+            <g id="icon-instagram">
+                <path d="M13.028 2.00123C13.7577 1.99843 14.4874 2.00576 15.217 2.02323L15.411 2.03023C15.635 2.03823 15.856 2.04823 16.123 2.06023C17.187 2.11023 17.913 2.27823 18.55 2.52523C19.21 2.77923 19.766 3.12323 20.322 3.67923C20.8303 4.17884 21.2238 4.78318 21.475 5.45023C21.722 6.08723 21.89 6.81423 21.94 7.87823C21.952 8.14423 21.962 8.36623 21.97 8.59023L21.976 8.78423C21.9937 9.51342 22.0014 10.2428 21.999 10.9722L22 11.7182V13.0282C22.0024 13.758 21.9948 14.4877 21.977 15.2172L21.971 15.4112C21.963 15.6352 21.953 15.8562 21.941 16.1232C21.891 17.1872 21.721 17.9132 21.475 18.5502C21.2246 19.218 20.8311 19.8228 20.322 20.3222C19.8219 20.8306 19.2173 21.224 18.55 21.4752C17.913 21.7222 17.187 21.8902 16.123 21.9402C15.856 21.9522 15.635 21.9622 15.411 21.9702L15.217 21.9762C14.4874 21.994 13.7577 22.0017 13.028 21.9992L12.282 22.0002H10.973C10.2432 22.0027 9.51349 21.995 8.78397 21.9772L8.58997 21.9712C8.35258 21.9626 8.11524 21.9526 7.87797 21.9412C6.81397 21.8912 6.08797 21.7212 5.44997 21.4752C4.78265 21.2246 4.1782 20.8311 3.67897 20.3222C3.17001 19.8225 2.77619 19.2178 2.52497 18.5502C2.27797 17.9132 2.10997 17.1872 2.05997 16.1232C2.04883 15.8859 2.03883 15.6486 2.02997 15.4112L2.02497 15.2172C2.00653 14.4877 1.9982 13.758 1.99997 13.0282V10.9722C1.99718 10.2428 2.00451 9.51343 2.02197 8.78423L2.02897 8.59023C2.03697 8.36623 2.04697 8.14423 2.05897 7.87823C2.10897 6.81323 2.27697 6.08823 2.52397 5.45023C2.77534 4.78285 3.16993 4.17868 3.67997 3.68023C4.17886 3.17098 4.78293 2.7768 5.44997 2.52523C6.08797 2.27823 6.81297 2.11023 7.87797 2.06023L8.58997 2.03023L8.78397 2.02523C9.51315 2.0068 10.2426 1.99847 10.972 2.00023L13.028 2.00123ZM12 7.00123C11.3375 6.99186 10.6797 7.11425 10.0649 7.3613C9.45016 7.60834 8.89061 7.97511 8.41881 8.44029C7.94701 8.90546 7.57237 9.45977 7.31665 10.071C7.06094 10.6822 6.92926 11.3382 6.92926 12.0007C6.92926 12.6633 7.06094 13.3192 7.31665 13.9305C7.57237 14.5417 7.94701 15.096 8.41881 15.5612C8.89061 16.0264 9.45016 16.3931 10.0649 16.6402C10.6797 16.8872 11.3375 17.0096 12 17.0002C13.326 17.0002 14.5978 16.4734 15.5355 15.5358C16.4732 14.5981 17 13.3263 17 12.0002C17 10.6741 16.4732 9.40238 15.5355 8.4647C14.5978 7.52701 13.326 7.00123 12 7.00123ZM12 9.00123C12.3985 8.99389 12.7944 9.06603 13.1648 9.21344C13.5351 9.36085 13.8723 9.58057 14.1567 9.85978C14.4412 10.139 14.6671 10.4721 14.8214 10.8396C14.9757 11.2071 15.0552 11.6016 15.0552 12.0002C15.0553 12.3988 14.9759 12.7934 14.8218 13.1609C14.6677 13.5285 14.4418 13.8617 14.1575 14.141C13.8731 14.4203 13.536 14.6401 13.1657 14.7876C12.7954 14.9352 12.3995 15.0074 12.001 15.0002C11.2053 15.0002 10.4423 14.6842 9.87965 14.1216C9.31704 13.5589 9.00097 12.7959 9.00097 12.0002C9.00097 11.2046 9.31704 10.4415 9.87965 9.87891C10.4423 9.3163 11.2053 9.00023 12.001 9.00023L12 9.00123ZM17.25 5.50123C16.9274 5.51414 16.6223 5.65138 16.3986 5.8842C16.1749 6.11702 16.05 6.42736 16.05 6.75023C16.05 7.0731 16.1749 7.38344 16.3986 7.61626C16.6223 7.84908 16.9274 7.98632 17.25 7.99923C17.5815 7.99923 17.8994 7.86753 18.1339 7.63311C18.3683 7.39869 18.5 7.08075 18.5 6.74923C18.5 6.41771 18.3683 6.09977 18.1339 5.86535C17.8994 5.63093 17.5815 5.49923 17.25 5.49923V5.50123Z" />
+            </g>
+            <g id="icon-clock">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 25C17.5228 25 22 20.5228 22 15C22 9.47715 17.5228 5 12 5C6.47715 5 2 9.47715 2 15C2 20.5228 6.47715 25 12 25ZM13 8.88875C13 8.33647 12.5523 7.88875 12 7.88875C11.4477 7.88875 11 8.33647 11 8.88875V14.7499C11 15.4402 11.5596 15.9999 12.25 15.9999H15.8889C16.4412 15.9999 16.8889 15.5521 16.8889 14.9999C16.8889 14.4476 16.4412 13.9999 15.8889 13.9999H13V8.88875Z" />
+            </g>
+            <g id="icon-bottle">
+                <path d="M6.99439 4.91703V1.625H4.00527V4.91703C4.00527 6.0328 0.490112 7.20463 0.490112 10.2736C0.490112 11.2224 0.490112 22.9076 0.490112 22.9076C0.490112 23.5109 0.979206 24.0001 1.58258 24.0001H9.4175C10.0208 24.0001 10.5099 23.5109 10.5099 22.9076C10.5099 22.9076 10.5099 11.2224 10.5099 10.2736C10.5099 7.20463 6.99439 6.0328 6.99439 4.91703ZM8.48671 19.0544H2.51333V13.1453H8.48671V19.0544Z" />
+                <path d="M4.07363 1.18983H6.91294C7.08525 1.18983 7.22522 1.05023 7.22522 0.877547V0.311859C7.22522 0.139547 7.08525 0 6.91294 0H4.07363C3.90127 0 3.76172 0.139594 3.76172 0.311859V0.877547C3.76172 1.05023 3.90127 1.18983 4.07363 1.18983Z" />
+            </g>
+            <g id="icon-menu">
+                <path d="M17.7683 0.478516H5.03473C4.18803 0.478516 3.49939 1.16711 3.49939 2.01348L3.51031 20.4126C3.51031 20.7715 3.75997 21.0832 4.11073 21.1606L14.7078 23.508C14.9345 23.5583 15.1719 23.5028 15.3533 23.3578C15.5342 23.2122 15.6397 22.9921 15.6397 22.7601V20.9698H17.7683C18.615 20.9698 19.3037 20.2811 19.3037 19.4348V2.01348C19.3037 1.16711 18.615 0.478516 17.7683 0.478516ZM13.0616 11.5672L5.83986 9.74673C5.61917 9.69109 5.46458 9.49267 5.46458 9.26509V6.87625C5.46458 6.55272 5.76898 6.31553 6.08272 6.39461L13.3044 8.21509C13.5251 8.27073 13.6797 8.4692 13.6797 8.69673V11.0856C13.6797 11.4091 13.3752 11.6463 13.0616 11.5672ZM15.6397 19.4324V4.35494C15.6397 3.99072 15.3836 3.67684 15.027 3.60395L7.26237 2.01592L17.7657 2.01348L17.7665 19.4318L15.6397 19.4324ZM17.7683 19.4318H17.7691H17.7683Z" />
+            </g>
+        </defs>
+    </svg>
+
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/datepicker.min.js"></script>
+    <script src="./scripts/custom-select.min.js"></script>
+
+</body>
+</html>
