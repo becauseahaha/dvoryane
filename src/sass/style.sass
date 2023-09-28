@@ -201,6 +201,43 @@ p, .text-1
     max-width: 1520px
     margin: 0 auto
 
+.header-2
+    aspect-ratio: 1920 / 1000
+    background-image: url(./../images/header-2.jpg)
+    background-size: contain
+    margin-bottom: 200px
+    &__wrapper
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 100%
+        position: relative
+    &__main
+        position: absolute
+        display: flex
+        flex-direction: column
+        gap: 100px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    &__buttons
+        display: flex
+        justify-content: center
+        gap: 24px
+    &__logo-wrapper
+        margin-left: 40px
+        margin-right: 40px
+    &__logo
+        max-width: 780px
+
+.header-2__navigation
+    padding-top: 40px
+    padding-bottom: 40px
+    .icon-svg
+        color: var(--canvas)
+    .navigation__language_active
+        color: var(--canvas)
+
 .header
     margin-bottom: 200px
     &__navigation
@@ -590,6 +627,11 @@ p, .text-1
     .layout 
         padding-left: 40px
         padding-right: 40px
+    .header-2
+        &__main
+            gap: 60px
+        &__logo
+            width: 100%
 
 @media (max-width: 1024px)
     .header
