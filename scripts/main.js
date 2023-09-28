@@ -84,7 +84,7 @@ reservationForm.addEventListener('submit', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
 
     // Keep native datepicker for mobile
-    if (document.body.clientWidth > 420) {
+    // if (document.body.clientWidth > 420) {
         const picker = datepicker('.js-datepicker', {
             formatter: (input, date, instance) => {
                 const d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
@@ -99,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
             minDate: new Date(),
             showAllDates: true,
         })
-    } else {
-        document.querySelectorAll('.js-datepicker').forEach((el) => {
-            el.type = 'date';
-        })
-    }
+    // } else {
+    //     document.querySelectorAll('.js-datepicker').forEach((el) => {
+    //         el.type = 'date';
+    //     })
+    // }
 
     // Stylize selects
     customSelect('select');

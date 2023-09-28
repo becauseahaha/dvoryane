@@ -49,7 +49,6 @@
 
 .custom-select-panel {
     max-height: 0;
-    transition: max-height .1s ease-out, overflow-y 0.1s 0.1s;
     overflow: hidden;
     background-color: var(--rye);
     position: absolute;

@@ -55,7 +55,7 @@ html
         transform: translateY(0px)
 
 .animate-text
-    animation: animate-text 0.5s both
+    animation: animate-text 0.7s both
 .animate-text-init
     opacity: 0
     transform: translateY(50px)
@@ -148,6 +148,7 @@ p, .text-1
     font-size: 1.25rem
     line-height: 150%
     color: var(--black)
+    border-radius: 0
     &:hover
         color: var(--ochre)
         &::placeholder
@@ -621,7 +622,8 @@ p, .text-1
     p, .text-1
         font-size: 1rem
 
-    .input[type="date"]:invalid::-webkit-datetime-edit
+    .input[type="date"]:invalid::-webkit-datetime-edit,
+    .input[type="date"]:invalid::datetime-edit
         color: transparent
 
     .layout 
@@ -786,6 +788,7 @@ p, .text-1
         max-height: 100vh
         height: auto
         overflow-y: auto
+        overflow-x: hidden
         padding-left: 16px
         padding-right: 16px
         &__form
