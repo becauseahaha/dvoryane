@@ -1,5 +1,6 @@
 document.querySelectorAll('.js-popup-show').forEach((el) => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
+        e.preventDefault();
         showPopup(el.dataset.target);
     })
 })
@@ -28,6 +29,7 @@ function hidePopup(id) {
 function showPopup(id) {
 
     if (id != 'popup-menu') hidePopup('popup-menu')
+    if (id == 'popup-politics') hidePopup('popup-reservation')
 
     let popup = document.getElementById(id);
 
@@ -49,61 +51,153 @@ function showPopup(id) {
 }
 
 document.querySelectorAll('.js-scroll-to').forEach((el) => {
+    const scrollIntoViewWithOffset = (selector) => {
+        console.log(  )
+        window.scrollTo({
+            behavior: "smooth",
+            top:
+                document.querySelector(selector).getBoundingClientRect().top -
+                document.body.getBoundingClientRect().top -
+                document.querySelector('.navigation').offsetHeight - 
+                20,
+        });
+    };
     el.addEventListener('click', () => {
         hidePopup('popup-menu');
-        document.getElementById(el.dataset.target).scrollIntoView({ behavior: "smooth" });
+        scrollIntoViewWithOffset('#'+el.dataset.target);
     })
 })
 
-const reservationForm = document.getElementById('reservation-form');
-reservationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let data = {};
-    data['name'] = reservationForm.querySelector('input[name="name"]').value;
-    data['phone'] = reservationForm.querySelector('input[name="phone"]').value;
-    data['guests'] = reservationForm.querySelector('input[name="guests"]').value;
-    data['date'] = reservationForm.querySelector('input[name="date"]').value;
-    data['time'] = reservationForm.querySelector('select[name="time"]').value;
-    // console.log(data);
-    // return;
-    // fetch("https://killboard-1.com/kb/mailer.php", {
-    //     method: "POST",
-    //     headers: { "Content-type": "application/json" },
-    //     body: JSON.stringify(data)
-    // });
-    fetch("https://killboard-1.com/kb/mailer.php?" + new URLSearchParams(data).toString())
-    .then(function(serverPromise) { 
-        serverPromise.json()
-        .then(function(data) { 
-            hidePopup('popup-reservation');
-            showPopup('popup-reservation-success');
-        });
+
+const contactsMap = () => {
+    const pin = {
+        iconLayout: 'default#image',
+        iconImageHref: './../images/map-pin.png',
+        iconImageSize: [38, 38],
+        iconImageOffset: [-19,-19]
+    }
+    let myMap = new ymaps.Map("map", {
+        center: [59.933023, 30.304603],
+        zoom: 16
     });
-})
+    let myPlacemark = new ymaps.Placemark(myMap.getCenter(), {}, pin)
+    myMap.geoObjects.add(myPlacemark);
+}
+
+const cuisine = () => {
+    const elems = document.querySelectorAll('.js-cuisine-slides');
+    elems.forEach((el) => {
+
+        const event = document.body.clientWidth > 420 ? 'mouseover' : 'click';
+
+        el.addEventListener(event, function() {
+            this.classList.toggle('is-hovered')
+        })
+    })
+}
+
+const headerSlider = () => {
+    const swiper = new Swiper('#header-slider', {
+        speed: 1000,
+        loop: true,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: false,
+        simulateTouch: false,
+        allowSwipeToNext: false,
+        allowSwipeToPrev: false,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        }
+    })
+}
+
+const reservationForm = () => {
+
+    const form = document.getElementById('reservation-form');
+
+    function classChanger() {
+        const input = this;
+        console.log(input)
+        if (input.value.length > 0) {
+            if (input.closest('.input-wrapper').classList.contains('is-active') == false) {
+                input.closest('.input-wrapper').classList.add('is-active');
+            }
+            input.closest('.input-wrapper').classList.remove('is-error');
+        } else {
+            input.closest('.input-wrapper').classList.remove('is-active');
+        }
+    }
+
+    form.querySelectorAll('input[type=text]').forEach((input) => {
+        input.addEventListener('change', classChanger)
+    })
+
+    form.addEventListener('submit', (e) => {
+
+        e.preventDefault();
+
+        let data = {};
+        let errors = 0;
+
+        form.querySelectorAll('input[type=text], select').forEach((input) => {
+            if (input.value.length > 0) {
+                input.closest('.input-wrapper').classList.remove('is-error');
+                data[input.name] = input.value;
+            } else {
+                if (input.closest('.input-wrapper').classList.contains('is-error') == false) {
+                    input.closest('.input-wrapper').classList.add('is-error');
+                }
+                errors++;
+            }
+        })
+
+        if (errors > 0) {
+            console.log(errors);
+            console.log(data);
+            return;
+        }
+
+        fetch("https://killboard-1.com/kb/mailer.php?" + new URLSearchParams(data).toString())
+        .then(function(serverPromise) { 
+            serverPromise.json()
+            .then(function(data) { 
+                hidePopup('popup-reservation');
+                showPopup('popup-reservation-success');
+            });
+        });
+    })
+
+    const picker = datepicker('.js-datepicker', {
+        onSelect: (instance, date) => {
+            classChanger.call(instance.el)
+        },
+        formatter: (input, date, instance) => {
+            const d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+            const real_m = parseInt(date.getMonth()) + 1;
+            const m = real_m < 10 ? '0' + real_m : real_m;
+            input.value = d + '.' + m + '.' + date.getFullYear();
+        },
+        position: 'tl',
+        startDay: 1,
+        customDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        minDate: new Date(),
+        showAllDates: true,
+    })
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Keep native datepicker for mobile
-    // if (document.body.clientWidth > 420) {
-        const picker = datepicker('.js-datepicker', {
-            formatter: (input, date, instance) => {
-                const d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-                const real_m = parseInt(date.getMonth()) + 1;
-                const m = real_m < 10 ? '0' + real_m : real_m;
-                input.value = d + '.' + m + '.' + date.getFullYear();
-            },
-            position: 'tl',
-            startDay: 1,
-            customDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-            customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-            minDate: new Date(),
-            showAllDates: true,
-        })
-    // } else {
-    //     document.querySelectorAll('.js-datepicker').forEach((el) => {
-    //         el.type = 'date';
-    //     })
-    // }
+    headerSlider();
+    reservationForm();
+    cuisine();
+
+    // Init Yandex.Map
+    if (typeof ymaps !== 'undefined') ymaps.ready(contactsMap);
 
     // Stylize selects
     customSelect('select');
@@ -120,21 +214,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, {
         root: null,
-        threshold: 0.7
+        threshold: 0.3
     })
     elementsToAnimate.forEach((el) => {
         observer.observe(el);
     })
 
     // Fullscreen logo animation
-    setTimeout(() => {
-        document.getElementById('fullscreen-logo').style.opacity = 0;
-    }, 3000)
-    document.getElementById('fullscreen-logo').addEventListener('transitionend', (e) => {
-        e.target.remove();
-        document.body.classList.remove('init')
-    }, {
-        once: true
-    })
+    const fullscreenLogo = document.getElementById('fullscreen-logo');
+    if (fullscreenLogo) {
+        setTimeout(() => {
+            document.getElementById('fullscreen-logo').style.opacity = 0;
+        }, 1500)
+        document.getElementById('fullscreen-logo').addEventListener('transitionend', (e) => {
+            e.target.remove();
+            document.body.classList.remove('init')
+        }, {
+            once: true
+        })
+    }
 })
 

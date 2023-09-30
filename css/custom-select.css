@@ -3,8 +3,18 @@
     box-sizing: border-box;
 }
 
-.custom-select-container * {
-    box-sizing: border-box;
+.custom-select-panel::-webkit-scrollbar {
+    background-color: var(--canvas);
+    width: 5px;
+    border-radius: 10px;
+}
+.custom-select-panel::-webkit-scrollbar-thumb {
+    background-color: var(--ochre);
+    border-radius: 10px;
+    width: 5px;
+}
+.custom-select-panel::-webkit-scrollbar-track {
+    border-radius: 10px;
 }
 
 .custom-select-container.is-disabled {

@@ -45,20 +45,26 @@ html
     font-weight: 300
     font-style: italic
     font-display: swap
+@font-face
+    font-family: 'Proxima Nova'
+    src: url('./../fonts/ProximaNova-Light.woff') format('woff')
+    font-weight: 300
+    font-style: normal
+    font-display: swap
 
 @keyframes animate-text 
     from
         opacity: 0
-        transform: translateY(50px)
+        transform: translateX(50px)
     to
         opacity: 1
-        transform: translateY(0px)
+        transform: translateX(0px)
 
 .animate-text
     animation: animate-text 0.7s both
 .animate-text-init
     opacity: 0
-    transform: translateY(50px)
+    transform: translateX(50px)
 
 body
     background-color: var(--canvas)
@@ -69,7 +75,8 @@ body
 
 h1, .title-1
     color: var(--ochre)
-    font-family: Bookman Old Style
+    // font-family: Bookman Old Style
+    font-family: 'Proxima Nova'
     font-size: 3.125rem
     letter-spacing: 0.625rem
     font-weight: 300
@@ -80,6 +87,7 @@ h2, .title-2
     font-size: 2rem
     letter-spacing: 0.4rem
     text-transform: uppercase
+    font-weight: 400
 
 p, .text-1
     font-size: 1.25rem
@@ -115,11 +123,18 @@ p, .text-1
     &:hover
         color: rgba(221, 127, 19, 1)
 
+.list 
+   margin-left: 20px
+   li, p
+    margin-bottom: 10px
+
 .link
-    text-decoration: underline
+    // text-decoration: underline
+    border-bottom: 1px solid var(--ochre)
     color: var(--ochre)
     &:hover
         color: var(--ochre-hover)
+        border-color: var(--ochre-hover)
 
 .input-wrapper
     position: relative
@@ -132,16 +147,24 @@ p, .text-1
         left: 20px
         top: 0
         transition: all 0.1s ease
+    &.is-error .input,
+    &.is-error .custom-select-opener
+        border-color: red
+    // &.is-error .input-placeholder
+    //         color: red
     .input:hover ~ .input-placeholder
         color: var(--ochre)
-    .input:not(:focus):valid ~ .input-placeholder,
-    .input:focus ~ .input-placeholder
+    // .input:not(:focus):valid ~ .input-placeholder,
+    .input:focus ~ .input-placeholder,
+    &:focus-within .input-placeholder,
+    &.is-active .input-placeholder
         top: 7px
         color: var(--ochre)
         line-height: 150%
         font-size: 0.75rem
 
 .input
+    font-family: inherit
     padding: 20px
     border: 1px solid var(--ochre)
     background: var(--rye)
@@ -149,6 +172,7 @@ p, .text-1
     line-height: 150%
     color: var(--black)
     border-radius: 0
+    transition: all 0.3s
     &:hover
         color: var(--ochre)
         &::placeholder
@@ -198,12 +222,12 @@ p, .text-1
         fill: currentColor
 
 .layout
-    max-width: 1520px
+    max-width: 1400px
     margin: 0 auto
 
 .header-2
     aspect-ratio: 1920 / 1000
-    background-image: url(./../images/header-2.jpg)
+    background-image: url(./../images/header2.jpg)
     background-size: contain
     margin-bottom: 200px
     &__wrapper
@@ -240,9 +264,6 @@ p, .text-1
 
 .header
     margin-bottom: 200px
-    &__navigation
-        padding-top: 40px
-        padding-bottom: 40px
     &__buttons
         position: absolute
         bottom: 100px
@@ -250,20 +271,40 @@ p, .text-1
         transform: translateX(-50%)
         display: flex
         gap: 24px
+        z-index: 1
     &__image
         width: 100%
         height: auto
         display: none
-    &__main
-        background: url(./../images/header.jpg) center center no-repeat
-        background-size: contain
+    &__main,
+    & .swiper
+        // --header-image: url('./../images/header-1.jpg')
         aspect-ratio:  1520 / 787
         position: relative
+    &__slide
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background-position: center center
+        background-size: contain
+
+.sticky-nav
+    .navigation 
+        position: sticky
+        top: 0
+        z-index: 2
 
 .navigation 
-    display: flex
-    justify-content: space-between
-    align-items: center
+    padding-top: 35px
+    padding-bottom: 35px
+    background-color: var(--canvas)
+    &__wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
     &__logo-wrapper
         width: 224px
         height: 50px
@@ -282,6 +323,7 @@ p, .text-1
     &__language
         color: var(--black)
         text-decoration: none
+        border: none
         &_active
             color: var(--ochre)
 
@@ -309,7 +351,7 @@ p, .text-1
         margin-bottom: 32px
 
 .cuisine
-    margin-bottom: 485px
+    margin-bottom: 325px
     &__description-wrapper
         margin-bottom: 80px
         max-width: 873px
@@ -326,7 +368,7 @@ p, .text-1
         flex: 1 1 auto
     &__photos-2
         display: grid
-        gap: 7px
+        gap: 13px
         grid-template-columns: 1fr 1fr
         grid-template-rows: auto auto
         flex: 1 1 auto
@@ -334,9 +376,25 @@ p, .text-1
         flex: 1 1 auto
     &__image
         display: inline-block
+        position: relative
+        cursor: pointer
         & img 
             width: 100%
             height: auto
+            position: relative
+            transition: opacity 1s
+            &:nth-child(n+2)
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                opacity: 0
+        &.is-hovered
+            img
+                &:nth-child(n+2)
+                    opacity: 1
+                
     &__image-2
         grid-column: 1/2
         grid-row: 1/2
@@ -345,6 +403,8 @@ p, .text-1
         grid-column: 2/3
     &__image-4
         grid-column: 1/3
+        & img
+            aspect-ratio: 583/412
 
 .chef
     background-color: var(--rye)
@@ -357,12 +417,12 @@ p, .text-1
         padding-top: 130px
         padding-bottom: 130px
         max-width: 780px
-        width: 60%
+        width: 50%
     &__image
         position: absolute
         left: -100%
         bottom: 0
-        max-width: 90%
+        max-width: 65%
     &__title
         margin-bottom: 16px
     &__sign
@@ -373,12 +433,14 @@ p, .text-1
 .bar
     display: flex
     margin-bottom: 175px
+    justify-content: space-between
+    gap: 40px
     &__col-left
         display: flex
         align-items: center
-        flex: 1 1 60%
+        flex: 1 1 auto
     &__col-right
-        padding-left: 92px
+        // padding-left: 92px
         flex-shrink: 1
     &__description-wrapper
         max-width: 670px
@@ -387,7 +449,7 @@ p, .text-1
     &__description
         margin-bottom: 64px
     &__image
-        max-width: 537px
+        max-width: 600px
         width: 100%
     .btn__icon
         width: 10px
@@ -428,6 +490,8 @@ p, .text-1
         fill: var(--ochre)
         margin-right: 10px
         // transform: translateY(5px)
+        &_email
+            height: 20px
         &_clock
             height: 30px
 
@@ -442,6 +506,7 @@ p, .text-1
 
     opacity: 0
     transition: opacity 0.3s
+    z-index: 2
 
     &__menu
         // display: none
@@ -460,6 +525,19 @@ p, .text-1
         position: absolute
         right: 40px
         top: 40px
+
+    &__window
+        position: relative
+        max-width: 90%
+        width: 1024px
+        background-color: var(--canvas)
+        max-height: 90vh
+        padding: 70px 34px
+        overflow-y: auto
+    &__title
+        margin-bottom: 30px
+    &__text
+
 
 .popup.is-shown
     opacity: 1
@@ -535,7 +613,9 @@ p, .text-1
         text-align: center
     &__map
         margin-top: 50px
-        aspect-ratio: 2 / 1
+        aspect-ratio: 2 / 0.75
+    .contacts__wrapper
+        justify-content: space-evenly
 
 .menu-popup
     &__wrapper
@@ -634,9 +714,11 @@ p, .text-1
             width: 100%
 
 @media (max-width: 1024px)
+    body 
+        overflow-x: clip
     .header
         &__buttons
-            bottom: 60px
+            bottom: 120px
     .cuisine
         margin-bottom: 230px
     .reservation-success-popup
@@ -664,6 +746,9 @@ p, .text-1
     p, .text-1
         font-size: 1rem
 
+    .btn
+        width: 100%
+
     .input[type="date"]:invalid::-webkit-datetime-edit,
     .input[type="date"]:invalid::datetime-edit
         color: transparent
@@ -674,21 +759,31 @@ p, .text-1
 
     .header
         margin-bottom: 120px
-        &__navigation
-            padding-top: 30px
-            padding-bottom: 30px
         &__main
-            background-image: url(./../images/header-mobile.jpg)
             width: 100vw
             position: relative
             left: -16px
-            aspect-ratio: 9 / 15
+            aspect-ratio: 360 / 600
             background-size: cover
+        .swiper
+            aspect-ratio: 360 / 600
+        &__slide
+            background-size: auto 100%
+        &__buttons
+            display: grid
+            grid-template-columns: 1fr 1fr
+            left: 0
+            right: 0
+            padding: 0 16px
+            transform: unset
         &__btn
-            width: 152px
+            width: auto
 
     .navigation
-        flex-direction: row-reverse
+        padding-top: 20px
+        padding-bottom: 20px
+        &__wrapper
+            flex-direction: row-reverse
         &__languages
             display: none
         &__burger
@@ -727,6 +822,9 @@ p, .text-1
             overflow: hidden
         &__photos-2
             gap: 16px
+        &__photos-3
+            overflow: hidden
+            aspect-ratio: 1/2
         &__image-1
             position: absolute
             top: -100%
@@ -737,7 +835,7 @@ p, .text-1
                 aspect-ratio: 485/789
         &__image-4,
         &__image-5
-            display: none
+            // display: none
         .btn__icon
             width: 16px
 
@@ -810,7 +908,7 @@ p, .text-1
             gap: 40px
         &__item:first-child
             position: absolute
-            top: 30px
+            top: 20px
             right: 16px
         &__item-languages
             display: block
@@ -823,11 +921,20 @@ p, .text-1
         &__close
             top: 16px
             right: 16px
+        &__window
+            width: 100%
+            max-width: unset
+            max-height: 100%
+            height: 100%
+            overflow-y: auto
+            overflow-x: hidden
+            padding-left: 16px
+            padding-right: 16px
 
     .reservation-popup
         width: 100%
         max-width: unset
-        max-height: 100vh
+        max-height: 100%
         height: auto
         overflow-y: auto
         overflow-x: hidden
@@ -848,8 +955,8 @@ p, .text-1
     .reservation-success-popup
         width: 100%
         max-width: unset
-        max-height: 100vh
-        height: 100vh
+        max-height: 100%
+        height: 100%
         overflow-y: auto
         flex-direction: column
         gap: 0
@@ -866,7 +973,6 @@ p, .text-1
         &__title
             margin-top: 56px
 
-
 .logo-start
     position: fixed
     top: 0
@@ -874,18 +980,20 @@ p, .text-1
     right: 0
     bottom: 0
     width: 100vw
-    height: 100vh
+    height: 100%
     background: bisque
-    display: flex
+    display: none
     justify-content: center
     align-items: center
     animation: animate-logo 5s both
     background-color: var(--canvas)
-    z-index: 1
+    z-index: 5
     opacity: 0
     transition: opacity 0.5s
     &__image
         width: 40vw
+.init .logo-start
+    display: flex
 
 header,
 main,

@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="./css/datepicker.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/custom-select.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
 </head>
-<body class="init">
+<body class="init2 sticky-nav">
     <div class="logo-start" id="fullscreen-logo"><img src="./images/logo.svg" class="logo-start__image"></div>
-    <header class="header layout">
-        <div class="navigation header__navigation">
+    <div class="navigation">
+        <div class="navigation__wrapper layout">
             <button class="navigation__burger js-popup-show" data-target="popup-menu" id="btn-show-menu">
                 <svg class="icon-svg"><use href="#icon-burger"></use></svg>
             </button>
@@ -24,7 +25,16 @@
                 <a href="#" class="navigation__language navigation__language_active link">En</a>
             </div>
         </div>
+    </div>
+    <header class="header layout">
         <div class="header__main">
+            <div class="swiper" id="header-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-3.jpg);"></div>
+                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-2.jpg);"></div>
+                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-1.jpg);"></div>
+                </div>
+            </div>
             <div class="header__buttons text-1">
                 <button class="header__btn btn btn_dark js-popup-show" data-target="popup-reservation">Резерв</button>
                 <button class="header__btn btn btn_light js-popup-show" data-target="popup-contacts">Контакты</button>
@@ -55,34 +65,34 @@
             <div class="cuisine__description-wrapper js-fade-in animate-text-init" data-classes="animate-text">
                 <h2 class="cuisine__title">Классическая кухня в авторском исполнении</h2>
                 <p>Сохранение традиций и самобытности петербургской кухни через переосмысление знакомых и любимых блюд в неожиданных сочетаниях вкусов и ароматов</p>
-                <button class="cuisine__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-menu"></use></svg>Меню</button>
+                <a href="https://dvoryane.com/menu.pdf" target="_blank" class="cuisine__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-menu"></use></svg>Меню</a>
             </div>
             <div class="cuisine__photos">
                 <div class="cuisine__photos-1">
-                    <picture class="cuisine__image cuisine__image-1">
-                        <source srcset="./images/photo-3.webp 1x, ./images/photo-3@2x.webp 1.5x" type="image/webp">
-                        <img src="./images/photo-3.jpg" srcset="./images/photo-3@2x.jpg 1.5x" loading="lazy">
-                    </picture>
+                    <div class="cuisine__image cuisine__image-1 js-cuisine-slides">
+                        <img src="./images/photo-3.jpg" srcset="./images/photo-3@2x.jpg 1.5x">
+                        <img src="./images/photo-3-2.jpg" srcset="./images/photo-3-2@2x.jpg 1.5x">
+                    </div>
                 </div>
                 <div class="cuisine__photos-2">
-                    <picture class="cuisine__image cuisine__image-2">
-                        <source srcset="./images/photo-4.webp 1x, ./images/photo-4@2x.webp 1.5x" type="image/webp">
+                    <div class="cuisine__image cuisine__image-2 js-cuisine-slides">
                         <img src="./images/photo-4.jpg" srcset="./images/photo-4@2x.jpg 1.5x" loading="lazy">
-                    </picture>
-                    <picture class="cuisine__image cuisine__image-3">
-                        <source srcset="./images/photo-5.webp 1x, ./images/photo-5@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-4-2.jpg" srcset="./images/photo-4-2@2x.jpg 1.5x" loading="lazy">
+                    </div>
+                    <div class="cuisine__image cuisine__image-3 js-cuisine-slides">
                         <img src="./images/photo-5.jpg" srcset="./images/photo-5@2x.jpg 1.5x" loading="lazy">
-                    </picture>
-                    <picture class="cuisine__image cuisine__image-4">
-                        <source srcset="./images/photo-6.webp 1x, ./images/photo-6@2x.webp 1.5x" type="image/webp">
+                        <img src="./images/photo-5-2.jpg" srcset="./images/photo-5-2@2x.jpg 1.5x" loading="lazy">
+                    </div>
+                    <div class="cuisine__image cuisine__image-4 js-cuisine-slides">
                         <img src="./images/photo-6.jpg" srcset="./images/photo-6@2x.jpg 1.5x" loading="lazy">
-                    </picture>
+                        <img src="./images/photo-6-2.jpg" srcset="./images/photo-6-2@2x.jpg 1.5x" loading="lazy">
+                    </div>
                 </div>
                 <div class="cuisine__photos-3">
-                    <picture class="cuisine__image cuisine__image-5">
-                        <source srcset="./images/photo-7.webp 1x, ./images/photo-7@2x.webp 1.5x" type="image/webp">
+                    <div class="cuisine__image cuisine__image-5 js-cuisine-slides">
                         <img src="./images/photo-7.jpg" srcset="./images/photo-7@2x.jpg 1.5x" loading="lazy">
-                    </picture>
+                        <img src="./images/photo-7-2.jpg" srcset="./images/photo-7-2@2x.jpg 1.5x" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
@@ -91,9 +101,31 @@
                 <div class="chef__wrapper">
                     <img src="./images/chef.png" class="chef__image" alt="">
                     <div class="js-fade-in animate-text-init" data-classes="animate-text">
-                        <h2 class="chef__title">Обращение шефа</h2>
-                        <p>Только самые свежие и натуральные фермерские продукты от локальных производителей, сезонные овощи и фрукты, которые дарят уникальный гастрономический опыт</p>
-                        <p class="chef__sign">Подпись</p>
+                        <!-- <h2 class="chef__title">Обращение шефа</h2> -->
+                        <p class="js-fade-in" data-classes="animate-text">
+                            <span>Мы</span>
+                            <span>используем</span>
+                            <span>только</span>
+                            <span>самые</span>
+                            <span>свежие</span>
+                            <span>и</span>
+                            <span>натуральные</span>
+                            <span>фермерские </span>
+                            <span>продукты </span>
+                            <span>от </span>
+                            <span>локальных </span>
+                            <span>производителей, </span>
+                            <span>сезонные </span>
+                            <span>овощи </span>
+                            <span>и </span>
+                            <span>фрукты, </span>
+                            <span>которые </span>
+                            <span>дарят </span>
+                            <span>уникальный </span>
+                            <span>гастрономический </span>
+                            <span>опыт.</span>
+                        </p>
+                        <p class="chef__sign">Калиновский Павел</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +135,7 @@
                 <div class="bar__description-wrapper js-fade-in animate-text-init" data-classes="animate-text">
                     <h2 class="bar__title">Карта вин, созданных мастерами виноделия России</h2>
                     <p class="bar__description">Классические сорта и редкие винные находки из разных регионов страны, воплотившие в себе душу русской природы и талант наших виноделов</p>
-                    <button class="bar__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-bottle"></use></svg>Барная карта</button>
+                    <a href="https://dvoryane.com/bar.pdf" target="_blank" class="bar__btn-menu btn btn_bordered"><svg class="btn__icon icon-svg"><use href="#icon-bottle"></use></svg>Барная карта</a>
                 </div>
             </div>
             <div class="bar__col-right">
@@ -127,8 +159,8 @@
         </div>
         <div class="footer__links">
             <div class="footer__links-wrapper layout">
-                <a href="#" class="link">Политика конфиденциальности</a>
-                <a href="#" class="link">Реквизиты организации</a>
+                <span><a href="#" class="link js-popup-show" data-target="popup-politics">Политика конфиденциальности</a></span>
+                <span><a href="#" class="link js-popup-show" data-target="popup-information">Реквизиты организации</a></span>
             </div>
         </div>
     </footer>
@@ -149,6 +181,68 @@
             </div>
         </div>
     </div>
+    <div class="popup" id="popup-politics">
+        <div class="popup__centered">
+            <div class="popup__window">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <div class="popup__title title-2">Политика конфиденциальности</div>
+                <div class="popup__text">
+                    <ol class="list">
+                        <li>
+                            <b>Общие положени</b>
+                            <p>Настоящее Положение о политике в отношении обработки персональных данных (далее — Положение) составлено в соответствии с требованиями Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных ООО «Спасибо вкусно»  (далее — Оператор).
+                            </p>
+                            <ol class="list">
+                                <li>Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиту прав на неприкосновенность частной жизни, личную и семейную тайну.
+                                </li>
+                                <li>Настоящее Положение применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://dvoryane.com/.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <b>Основные понятия, используемые в Положении</b>
+                            <ol class="list">
+                                <li>Автоматизированная обработка персональных данных — обработка персональных данных с помощью средств вычислительной техники.</li>
+                                <li>Блокирование персональных данных — временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных).</li>
+                                <li>Веб-сайт — совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://dvoryane.com/.
+                                </li>
+                                <li>Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных, информационных технологий и технических средств, обеспечивающих их обработку.
+                                </li>
+                                <li>Обезличивание персональных данных — действия, в результате которых невозможно определить без использования дополнительной информации принадлежность персональных данных конкретному Пользователю или иному субъекту персональных данных.
+                                </li>
+                                <li>Обработка персональных данных — любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств, с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.
+                                </li>
+                                <li>Оператор — государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.
+                                </li>
+                                <li>Персональные данные — любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://dvoryane.com/.
+                                </li>
+                                <li>Пользователь — любой посетитель веб-сайта https://dvoryane.com/.
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup-information">
+        <div class="popup__centered">
+            <div class="popup__window">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <div class="popup__title title-2">Общество с ограниченной ответственностью "СПАСИБО ВКУСНО"</div>
+                <div class="popup__text">
+                    <p>ОГРН: 1207800047036</p>
+                    <p>ИНН: 7841088687</p>
+                    <p>КПП: 780601001</p>
+                    <p>Банк: ФИЛИАЛ "САНКТ-ПЕТЕРБУРГСКИЙ" АО "АЛЬФА-БАНК"</p>
+                    <p>БИК: 044030786</p>
+                    <p>Кор. счёт: 30101810600000000786</p>
+                    <p>Рассчетный счёта: 40702810932410006228</p>
+                    <p>Юридический адрес: Санкт-Петербург, шоссе Революции, д. 8, литера А, помещение 1-Н, 2-Н, офис 5</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="popup" id="popup-contacts">
         <div class="popup__centered">
             <div class="popup__contacts contacts-popup">
@@ -159,9 +253,11 @@
                         <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-map"></use></svg>Санкт-Петербург, ул. Почтамтская, 1</div>
                         <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-phone"></use></svg><a href="phone:+7 (812) 330 02 03">+7 (812) 330 02 03</a></div>
                         <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-instagram"></use></svg><a href="https://instagram.com/dvoryane.rest">dvoryane.rest</a></div>
+                        <div class="contacts__item"><svg class="contacts__icon contacts__icon_email icon-svg" viewBox="0 0 378.632 378.632"><use href="#icon-email"></use></svg><a href="mailto:info@dvoryane.com">info@dvoryane.com</a></div>
+                        <div class="contacts__item"><svg class="contacts__icon contacts__icon_clock icon-svg"><use href="#icon-clock"></use></svg>с 12:00 до 23:00</div>
                     </div>  
                 </div>
-                <div class="contacts-popup__map"><iframe src="https://yandex.ru/map-widget/v1/?ll=30.304106%2C59.932705&mode=search&oid=106559427719&ol=biz&z=15" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
+                <div class="contacts-popup__map" id="map"></div>
             </div>
         </div>
     </div>
@@ -185,19 +281,19 @@
                 <div class="reservation-popup__title title-1">Зарезервируйте столик</div>
                 <form method="post" action="mailer.php" class="reservation-popup__form" id="reservation-form"> 
                     <div class="input-wrapper reservation-popup__form-item-1">
-                        <input type="text" name="name" class="input" required>
+                        <input type="text" name="name" class="input">
                         <span class="input-placeholder">Введите имя</span>
                     </div>
                     <div class="input-wrapper reservation-popup__form-item-2">
-                        <input type="text" name="phone" class="input" required>
+                        <input type="text" name="phone" class="input">
                         <span class="input-placeholder">Введите телефон</span>
                     </div>
                     <div class="input-wrapper reservation-popup__form-item-3">
-                        <input type="number" name="guests" class="input" min="1" autocomplete="off" required>
+                        <input type="text" name="guests" class="input" min="1" autocomplete="off">
                         <span class="input-placeholder">Кол-во гостей</span>
                     </div>
                     <div class="input-wrapper reservation-popup__form-item-4">
-                        <input type="text" name="date" class="input js-datepicker" autocomplete="off" required>
+                        <input type="text" name="date" class="input js-datepicker" autocomplete="off">
                         <span class="input-placeholder">Выбор даты</span>
                     </div>
                     <div class="input-wrapper reservation-popup__form-item-5">
@@ -234,7 +330,7 @@
                         <button type="submit" class="btn btn_dark">Резерв</button>
                     </div>
                 </form>
-                <div class="reservation-popup__small-text">Нажимая на кнопку Резерв, вы соглашаетесь с <a href="#" class="link">политикой конфиденциальности</a></div>
+                <div class="reservation-popup__small-text">Нажимая на кнопку Резерв, вы соглашаетесь с <a href="#" class="link js-popup-show" data-target="popup-politics">политикой конфиденциальности</a></div>
             </div>
         </div>
     </div>
@@ -272,12 +368,17 @@
             <g id="icon-menu">
                 <path d="M17.7683 0.478516H5.03473C4.18803 0.478516 3.49939 1.16711 3.49939 2.01348L3.51031 20.4126C3.51031 20.7715 3.75997 21.0832 4.11073 21.1606L14.7078 23.508C14.9345 23.5583 15.1719 23.5028 15.3533 23.3578C15.5342 23.2122 15.6397 22.9921 15.6397 22.7601V20.9698H17.7683C18.615 20.9698 19.3037 20.2811 19.3037 19.4348V2.01348C19.3037 1.16711 18.615 0.478516 17.7683 0.478516ZM13.0616 11.5672L5.83986 9.74673C5.61917 9.69109 5.46458 9.49267 5.46458 9.26509V6.87625C5.46458 6.55272 5.76898 6.31553 6.08272 6.39461L13.3044 8.21509C13.5251 8.27073 13.6797 8.4692 13.6797 8.69673V11.0856C13.6797 11.4091 13.3752 11.6463 13.0616 11.5672ZM15.6397 19.4324V4.35494C15.6397 3.99072 15.3836 3.67684 15.027 3.60395L7.26237 2.01592L17.7657 2.01348L17.7665 19.4318L15.6397 19.4324ZM17.7683 19.4318H17.7691H17.7683Z" />
             </g>
+            <g id="icon-email">
+                <path d="M377.406,160.981c-5.083-48.911-31.093-92.52-73.184-122.854C259.004,5.538,200.457-6.936,147.603,4.807 C97.354,15.971,53.256,48.312,26.571,93.491C-0.122,138.731-7.098,192.982,7.436,242.39c7.832,26.66,21.729,51.712,40.15,72.51 c18.594,20.972,41.904,37.722,67.472,48.459c23.579,9.888,48.628,14.797,73.653,14.797c34.128-0.001,68.115-9.121,97.949-27.098 l-21.092-35.081c-40.578,24.451-90.887,28.029-134.652,9.66c-40.283-16.96-71.759-52.383-84.211-94.761 c-11.336-38.595-5.846-81.093,15.125-116.586c20.922-35.467,55.426-60.801,94.622-69.533c41.644-9.225,87.948,0.669,123.857,26.566 c32.502,23.394,52.497,56.769,56.363,93.907c2.515,23.979,0.31,42.891-6.526,56.226c-14.487,28.192-35.526,28.36-43.873,27.132 c-0.283-0.041-0.476-0.082-0.65-0.117c-2.396-3.709-2.091-17.489-1.974-23.473c0.044-2.332,0.084-4.572,0.084-6.664v-112.06h-31.349 c-3.998-3.278-8.225-6.251-12.674-8.921c-17.076-10.159-36.858-15.552-57.255-15.552c-29.078,0-56.408,10.597-76.896,29.824 c-32.537,30.543-42.63,80.689-24.551,122.023c8.578,19.62,23.065,35.901,41.876,47.066c17.611,10.434,38.182,15.972,59.47,15.972 c24.394,0,46.819-6.735,64.858-19.492c1.915-1.342,3.813-2.79,5.626-4.233c6.431,8.805,15.811,14.4,27.464,16.114 c16.149,2.408,32.299-0.259,46.784-7.668c16.453-8.419,29.715-22.311,39.439-41.271C377.209,219.346,380.778,193.46,377.406,160.981 z M242.33,224.538c-0.891,1.283-2.229,2.907-2.961,3.803c-0.599,0.778-1.151,1.46-1.643,2.073 c-3.868,4.982-8.597,9.48-14.113,13.374c-11.26,7.943-25.152,11.964-41.257,11.964c-28.968,0-53.462-14.75-63.846-38.544 c-11.258-25.69-5.071-56.854,15.035-75.692c12.7-11.95,30.538-18.784,48.911-18.784c13.028,0,25.56,3.375,36.268,9.788 c6.831,4.072,12.861,9.337,17.9,15.719c0.497,0.613,1.082,1.322,1.724,2.094c0.952,1.135,2.812,3.438,3.981,5.092V224.538z"></path>
+            </g>
         </defs>
     </svg>
 
     <script src="./scripts/main.js"></script>
     <script src="./scripts/datepicker.min.js"></script>
     <script src="./scripts/custom-select.min.js"></script>
+    <script src="./scripts/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c74c036f-0577-4d7a-8c40-c1ca5e6195d1&lang=ru_RU"></script>
 
 </body>
 </html>
