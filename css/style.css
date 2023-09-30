@@ -940,6 +940,7 @@ p, .text-1 {
     right: 0;
     padding: 0 16px;
     transform: unset;
+    bottom: 120px;
   }
   .header__btn {
     width: auto;

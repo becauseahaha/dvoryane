@@ -72,7 +72,7 @@ document.querySelectorAll('.js-scroll-to').forEach((el) => {
 const contactsMap = () => {
     const pin = {
         iconLayout: 'default#image',
-        iconImageHref: './../images/map-pin.png',
+        iconImageHref: './images/map-pin.png',
         iconImageSize: [38, 38],
         iconImageOffset: [-19,-19]
     }
