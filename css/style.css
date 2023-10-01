@@ -208,6 +208,64 @@ p, .text-1 {
   outline: none;
 }
 
+.select {
+  position: relative;
+}
+.select::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkFycm93X2Ryb3BfbGVmdCI+CjxwYXRoIGlkPSJWZWN0b3IgMTAiIGQ9Ik03Ljc4OCAxMS42NjA4TDMuNzY1IDUuMjI0QzMuNDMxOTggNC42OTExNiAzLjgxNTA1IDQgNC40NDM0IDRMMTEuNTU2NiA0QzEyLjE4NDkgNCAxMi41NjggNC42OTExNiAxMi4yMzUgNS4yMjRMOC4yMTIgMTEuNjYwOEM4LjExNDA4IDExLjgxNzUgNy44ODU5MiAxMS44MTc1IDcuNzg4IDExLjY2MDhaIiBmaWxsPSIjMzAzMDMwIi8+CjwvZz4KPC9zdmc+Cg==);
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.select__dropdown {
+  display: none;
+  position: absolute;
+  width: calc(100% + 2px);
+  bottom: 100%;
+  left: -1px;
+  border: 1px solid var(--ochre);
+  background: var(--rye);
+  padding: 20px;
+}
+.select__dropdown-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 200px;
+}
+.select__dropdown-wrapper::-webkit-scrollbar {
+  background-color: var(--canvas);
+  width: 5px;
+  border-radius: 10px;
+}
+.select__dropdown-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--ochre);
+  border-radius: 10px;
+  width: 5px;
+}
+.select__dropdown-wrapper::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.select__item {
+  color: var(--black);
+  cursor: pointer;
+}
+.select__item:hover {
+  color: var(--ochre);
+}
+.select.is-active .select__dropdown {
+  display: block;
+}
+
 .btn {
   width: 227px;
   padding: 20px;
@@ -634,6 +692,7 @@ p, .text-1 {
 .popup__title {
   margin-bottom: 30px;
 }
+
 .popup.is-shown {
   opacity: 1;
 }
@@ -751,6 +810,7 @@ p, .text-1 {
 }
 .menu-popup__link {
   text-decoration: none;
+  border: none;
 }
 .menu-popup__link_active {
   color: var(--black);

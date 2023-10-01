@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/datepicker.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/custom-select.css">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
 </head>
 <body class="init sticky-nav">
@@ -297,34 +296,37 @@
                         <span class="input-placeholder">Выбор даты</span>
                     </div>
                     <div class="input-wrapper reservation-popup__form-item-5">
-                        <select name="time">
-                            <option value="">Выбор времени</option>
-                            <option value="10:00">10:00</option>
-                            <option value="10:30">10:30</option>
-                            <option value="11:00">11:00</option>
-                            <option value="11:30">11:30</option>
-                            <option value="12:00">12:00</option>
-                            <option value="12:30">12:30</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="14:30">14:30</option>
-                            <option value="15:00">15:00</option>
-                            <option value="15:30">15:30</option>
-                            <option value="16:00">16:00</option>
-                            <option value="16:30">16:30</option>
-                            <option value="17:00">17:00</option>
-                            <option value="17:30">17:30</option>
-                            <option value="18:00">18:00</option>
-                            <option value="18:30">18:30</option>
-                            <option value="19:00">19:00</option>
-                            <option value="19:30">19:30</option>
-                            <option value="20:00">20:00</option>
-                            <option value="20:30">20:30</option>
-                            <option value="21:00">21:00</option>
-                            <option value="21:30">21:30</option>
-                            <option value="22:00">22:00</option>
-                            <option value="22:30">22:30</option>
-                        </select>
+                        <div class="input select js-select">
+                            <input type="hidden" name="time">
+                            <div class="select__label">Выбор времени</div>
+                            <div class="select__dropdown">
+                                <div class="select__dropdown-wrapper">
+                                    <div class="select__item" data-value="10:00">10:00</div>
+                                    <div class="select__item" data-value="10:30">10:30</div>
+                                    <div class="select__item" data-value="11:30">11:30</div>
+                                    <div class="select__item" data-value="12:00">12:00</div>
+                                    <div class="select__item" data-value="12:30">12:30</div>
+                                    <div class="select__item" data-value="13:00">13:00</div>
+                                    <div class="select__item" data-value="13:30">13:30</div>
+                                    <div class="select__item" data-value="14:00">14:00</div>
+                                    <div class="select__item" data-value="14:30">14:30</div>
+                                    <div class="select__item" data-value="15:00">15:00</div>
+                                    <div class="select__item" data-value="15:30">15:30</div>
+                                    <div class="select__item" data-value="16:00">16:00</div>
+                                    <div class="select__item" data-value="16:30">16:30</div>
+                                    <div class="select__item" data-value="17:00">17:00</div>
+                                    <div class="select__item" data-value="17:30">17:30</div>
+                                    <div class="select__item" data-value="18:00">18:00</div>
+                                    <div class="select__item" data-value="18:30">18:30</div>
+                                    <div class="select__item" data-value="19:00">19:00</div>
+                                    <div class="select__item" data-value="19:30">19:30</div>
+                                    <div class="select__item" data-value="20:00">20:00</div>
+                                    <div class="select__item" data-value="20:30">20:30</div>
+                                    <div class="select__item" data-value="21:00">21:00</div>
+                                    <div class="select__item" data-value="21:30">21:30</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="reservation-popup__form-item-6">
                         <button type="submit" class="btn btn_dark">Резерв</button>
@@ -376,7 +378,6 @@
 
     <script src="./scripts/main.js"></script>
     <script src="./scripts/datepicker.min.js"></script>
-    <script src="./scripts/custom-select.min.js"></script>
     <script src="./scripts/swiper-bundle.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=c74c036f-0577-4d7a-8c40-c1ca5e6195d1&lang=ru_RU"></script>
 

@@ -52,7 +52,6 @@ function showPopup(id) {
 
 document.querySelectorAll('.js-scroll-to').forEach((el) => {
     const scrollIntoViewWithOffset = (selector) => {
-        console.log(  )
         window.scrollTo({
             behavior: "smooth",
             top:
@@ -121,7 +120,6 @@ const reservationForm = () => {
 
     function classChanger() {
         const input = this;
-        console.log(input)
         if (input.value.length > 0) {
             if (input.closest('.input-wrapper').classList.contains('is-active') == false) {
                 input.closest('.input-wrapper').classList.add('is-active');
@@ -132,7 +130,7 @@ const reservationForm = () => {
         }
     }
 
-    form.querySelectorAll('input[type=text]').forEach((input) => {
+    form.querySelectorAll('input').forEach((input) => {
         input.addEventListener('change', classChanger)
     })
 
@@ -143,7 +141,7 @@ const reservationForm = () => {
         let data = {};
         let errors = 0;
 
-        form.querySelectorAll('input[type=text], select').forEach((input) => {
+        form.querySelectorAll('input[type=text], select, input[type=hidden]').forEach((input) => {
             if (input.value.length > 0) {
                 input.closest('.input-wrapper').classList.remove('is-error');
                 data[input.name] = input.value;
@@ -156,8 +154,8 @@ const reservationForm = () => {
         })
 
         if (errors > 0) {
-            console.log(errors);
-            console.log(data);
+            // console.log(errors);
+            // console.log(data);
             return;
         }
 
@@ -190,17 +188,42 @@ const reservationForm = () => {
     })
 }
 
+const customSelect = () => {
+
+    function hideSelect(e) {
+        if (e.target.closest('.select') === null) {
+            this.classList.remove('is-active')
+        }
+    }
+
+    let selects = document.querySelectorAll('.js-select');
+
+    selects.forEach((el) => {
+        el.addEventListener('click', function(e) {
+            if (el.classList.contains('is-active') == false) {
+                setTimeout(() => {
+                    document.body.addEventListener('click', hideSelect.bind(el), {once: true});
+                });
+            }
+            el.classList.toggle('is-active')
+            if (e.target.classList.contains('select__item')) {
+                const value = e.target.dataset.value;
+                el.querySelector('input').value = value;
+                el.querySelector('.select__label').innerHTML = value;
+            }
+        })
+    })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     headerSlider();
     reservationForm();
     cuisine();
+    customSelect();
 
     // Init Yandex.Map
     if (typeof ymaps !== 'undefined') ymaps.ready(contactsMap);
-
-    // Stylize selects
-    customSelect('select');
 
     // Text fade in animation
     const elementsToAnimate = document.querySelectorAll('.js-fade-in');
