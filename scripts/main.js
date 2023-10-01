@@ -159,7 +159,7 @@ const reservationForm = () => {
             return;
         }
 
-        fetch("https://killboard-1.com/kb/mailer.php?" + new URLSearchParams(data).toString())
+        fetch("mailer.php?" + new URLSearchParams(data).toString())
         .then(function(serverPromise) { 
             serverPromise.json()
             .then(function(data) { 
