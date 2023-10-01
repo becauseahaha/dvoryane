@@ -60,11 +60,35 @@ html
         opacity: 1
         transform: translateX(0px)
 
+@keyframes animate-text-scale
+    100%
+        transform: scale(1)
+@keyframes animate-text-blur
+    100%
+        opacity: 1
+        filter: blur(0)
+
 .animate-text
     animation: animate-text 0.7s both
 .animate-text-init
     opacity: 0
     transform: translateX(50px)
+
+.animate-text-blur-init  
+    opacity: 0     
+    transform: scale(0.94)
+
+.animate-text-blur
+    opacity: 1     
+    animation: animate-text-scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1)
+    span 
+        display: inline-block
+        opacity: 0
+        filter: blur(4px)
+        @for $i from 1 through 22
+            &:nth-child(#{$i})
+                animation: animate-text-blur 0.8s 0.1s * $i forwards cubic-bezier(0.11, 0, 0.5, 0)
+
 
 body
     background-color: var(--canvas)
@@ -151,14 +175,12 @@ p, .text-1
         left: 20px
         top: 0
         transition: all 0.1s ease
+        white-space: nowrap
     &.is-error .input,
     &.is-error .custom-select-opener
         border-color: red
-    // &.is-error .input-placeholder
-    //         color: red
     .input:hover ~ .input-placeholder
         color: var(--ochre)
-    // .input:not(:focus):valid ~ .input-placeholder,
     .input:focus ~ .input-placeholder,
     &:focus-within .input-placeholder,
     &.is-active .input-placeholder
@@ -198,6 +220,8 @@ p, .text-1
         right: 20px
         top: 50%
         transform: translateY(-50%)
+    &__label
+        white-space: nowrap
     &__dropdown
         display: none
         position: absolute
@@ -214,16 +238,6 @@ p, .text-1
         overflow-x: hidden
         overflow-y: auto
         max-height: 200px
-        &::-webkit-scrollbar 
-            background-color: var(--canvas)
-            width: 5px
-            border-radius: 10px
-        &::-webkit-scrollbar-thumb
-            background-color: var(--ochre)
-            border-radius: 10px
-            width: 5px
-        &::-webkit-scrollbar-track
-            border-radius: 10px
     &__item
         color: var(--black)
         cursor: pointer
@@ -274,6 +288,18 @@ p, .text-1
         height: 24px
         color: inherit
         fill: currentColor
+
+.scroll
+    &::-webkit-scrollbar 
+        background-color: var(--canvas)
+        width: 5px
+        border-radius: 10px
+    &::-webkit-scrollbar-thumb
+        background-color: var(--ochre)
+        border-radius: 10px
+        width: 5px
+    &::-webkit-scrollbar-track
+        border-radius: 10px
 
 .layout
     max-width: 1400px
@@ -588,16 +614,6 @@ p, .text-1
         max-height: 90vh
         padding: 70px 34px
         overflow-y: auto
-        &::-webkit-scrollbar 
-            background-color: var(--canvas)
-            width: 5px
-            border-radius: 10px
-        &::-webkit-scrollbar-thumb
-            background-color: var(--ochre)
-            border-radius: 10px
-            width: 5px
-        &::-webkit-scrollbar-track
-            border-radius: 10px
     &__title
         margin-bottom: 30px
 
@@ -651,7 +667,8 @@ p, .text-1
         display: grid
         grid-template-columns: repeat(4, 1fr)
         gap: 16px
-        .input
+        .input,
+        .btn
             width: 100%
     &__form-item-1
         grid-row: 1/2

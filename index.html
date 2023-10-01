@@ -102,8 +102,8 @@
                         <source srcset="./images/chef.webp" type="image/webp">
                         <img src="./images/chef.png" class="chef__image">
                     </picture>
-                    <div class="js-fade-in animate-text-init" data-classes="animate-text">
-                        <p class="js-fade-in" data-classes="animate-text">
+                    <div>
+                        <p class="js-fade-in animate-text-blur-init" data-classes="animate-text-blur">
                             <span>Мы</span>
                             <span>используем</span>
                             <span>только</span>
@@ -126,7 +126,7 @@
                             <span>гастрономический </span>
                             <span>опыт.</span>
                         </p>
-                        <p class="chef__sign">Калиновский Павел</p>
+                        <p class="chef__sign js-fade-in animate-text-init" data-classes="animate-text" style="animation-delay: 3s">Калиновский Павел</p>
                     </div>
                 </div>
             </div>
@@ -184,7 +184,7 @@
     </div>
     <div class="popup" id="popup-politics">
         <div class="popup__centered">
-            <div class="popup__window">
+            <div class="popup__window scroll">
                 <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
                 <div class="popup__title title-2">Политика конфиденциальности</div>
                 <div class="popup__text">
@@ -329,7 +329,7 @@
     </div>
     <div class="popup" id="popup-contacts">
         <div class="popup__centered">
-            <div class="popup__contacts contacts-popup">
+            <div class="popup__contacts contacts-popup scroll">
                 <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
                 <div class="contacts-popup__title title-1">Контакты</div>
                 <div class="contacts contacts_popup">
@@ -359,7 +359,7 @@
     </div>
     <div class="popup" id="popup-reservation">
         <div class="popup__centered">
-            <div class="popup__reservation reservation-popup">
+            <div class="popup__reservation reservation-popup scroll">
                 <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
                 <img src="./images/photo-reservation.jpg" sizes="(max-width: 480px) 480px" srcset="./images/photo-reservation-mobile.jpg 480w, ./images/photo-reservation.jpg" class="reservation-popup__image">
                 <div class="reservation-popup__title title-1">Зарезервируйте столик</div>
@@ -385,7 +385,7 @@
                             <input type="hidden" name="time">
                             <div class="select__label">Выбор времени</div>
                             <div class="select__dropdown">
-                                <div class="select__dropdown-wrapper">
+                                <div class="select__dropdown-wrapper scroll">
                                     <div class="select__item" data-value="10:00">10:00</div>
                                     <div class="select__item" data-value="10:30">10:30</div>
                                     <div class="select__item" data-value="11:30">11:30</div>
