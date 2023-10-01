@@ -227,14 +227,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Text fade in animation
     const elementsToAnimate = document.querySelectorAll('.js-fade-in');
-    const observer = new window.IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-            const classes = entry.target.dataset.classes;
-            if (!classes) return;
-            const list = classes.split(",");
-            entry.target.classList.add(...list);
-            observer.unobserve(entry.target);
-        }
+    let observer = new IntersectionObserver(function (entries, self) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const classes = entry.target.dataset.classes;
+                if (!classes) return;
+                const list = classes.split(",");
+                entry.target.classList.add(...list);
+                observer.unobserve(entry.target);
+            }
+        });
     }, {
         root: null,
         threshold: 0.3

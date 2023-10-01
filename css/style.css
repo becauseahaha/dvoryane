@@ -148,8 +148,13 @@ p, .text-1 {
 .list {
   margin-left: 20px;
 }
-.list li, .list p {
+.list li, .list p, .list b {
   margin-bottom: 10px;
+  font-size: 1rem;
+}
+.list b {
+  display: block;
+  font-size: 1.3rem;
 }
 
 .link {
@@ -688,6 +693,19 @@ p, .text-1 {
   max-height: 90vh;
   padding: 70px 34px;
   overflow-y: auto;
+}
+.popup__window::-webkit-scrollbar {
+  background-color: var(--canvas);
+  width: 5px;
+  border-radius: 10px;
+}
+.popup__window::-webkit-scrollbar-thumb {
+  background-color: var(--ochre);
+  border-radius: 10px;
+  width: 5px;
+}
+.popup__window::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 .popup__title {
   margin-bottom: 30px;
