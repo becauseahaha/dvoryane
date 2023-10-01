@@ -886,11 +886,15 @@ p, .text-1 {
   text-align: center;
 }
 .contacts-popup__map {
-  margin-top: 50px;
+  margin-top: 30px;
   aspect-ratio: 2/0.75;
 }
 .contacts-popup .contacts__wrapper {
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contacts-popup .contacts__item {
+  margin-bottom: 20px;
 }
 
 .menu-popup__wrapper {
@@ -1252,6 +1256,9 @@ p, .text-1 {
   }
   .contacts-popup__map {
     aspect-ratio: 1/1;
+  }
+  .contacts-popup .contacts__wrapper {
+    gap: 0;
   }
   .menu-popup {
     width: 100%;
