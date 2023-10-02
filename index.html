@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/datepicker.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
 </head>
 <body class="init sticky-nav">
     <div class="logo-start" id="fullscreen-logo"><img src="./images/logo.svg" class="logo-start__image"></div>
@@ -27,12 +26,11 @@
     </div>
     <header class="header layout">
         <div class="header__main">
-            <div class="swiper" id="header-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-3.jpg);"></div>
-                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-2.jpg);"></div>
-                    <div class="swiper-slide header__slide" style="background-image: url(./images/header-1.jpg);"></div>
-                </div>
+            <img src="./images/header-empty.png" sizes="(max-width: 480px) 480px" srcset="./images/header-empty-mobile.png 480w, ./images/header-empty.png" class="header__image-placeholder">
+            <div class="header__slides" id="header-slider">
+                <div class="header__slide" style="background-image: url(./images/header-1.jpg);"></div>
+                <div class="header__slide" style="background-image: url(./images/header-2.jpg);"></div>
+                <div class="header__slide" style="background-image: url(./images/header-3.jpg);"></div>
             </div>
             <div class="header__buttons text-1">
                 <button class="header__btn btn btn_dark js-popup-show" data-target="popup-reservation">Резерв</button>
@@ -151,10 +149,12 @@
     <footer class="footer">
         <div class="footer__contacts contacts">
             <div class="contacts__wrapper layout">
-                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-map"></use></svg>Санкт-Петербург, ул. Почтамтская, 1</div>
-                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-phone"></use></svg><a href="phone:+7 (812) 330 02 03">+7 (812) 330 02 03</a></div>
-                <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-instagram"></use></svg><a href="https://instagram.com/dvoryane.rest">dvoryane.rest</a></div>
-                <div class="contacts__item"><svg class="contacts__icon contacts__icon_clock icon-svg"><use href="#icon-clock"></use></svg>Ежедневно с 12:00 до 23:00</div>
+                <div class="contacts__col-left">
+                    <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-map"></use></svg>Санкт-Петербург, ул. Почтамтская, 1</div>
+                    <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-phone"></use></svg><a href="phone:+7 (812) 330 02 03">+7 (812) 330 02 03</a></div>
+                    <div class="contacts__item"><svg class="contacts__icon icon-svg"><use href="#icon-instagram"></use></svg><a href="https://instagram.com/dvoryane.rest">dvoryane.rest</a></div>
+                    <div class="contacts__item"><svg class="contacts__icon contacts__icon_clock icon-svg"><use href="#icon-clock"></use></svg>Ежедневно с 12:00 до 23:00</div>
+                </div>
                 <button class="btn btn_dark js-popup-show" data-target="popup-reservation">Резерв</button>
             </div>  
         </div>
@@ -469,7 +469,6 @@
 
     <script src="./scripts/main.js"></script>
     <script src="./scripts/datepicker.min.js"></script>
-    <script src="./scripts/swiper-bundle.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=c74c036f-0577-4d7a-8c40-c1ca5e6195d1&lang=ru_RU"></script>
 
 </body>

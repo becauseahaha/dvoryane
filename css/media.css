@@ -1,0 +1,371 @@
+@media (max-width: 1440px) {
+  .layout {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .header-2__main {
+    gap: 60px;
+  }
+  .header-2__logo {
+    width: 100%;
+  }
+  .footer__contacts .contacts__wrapper {
+    flex-wrap: nowrap;
+  }
+  .footer__contacts .contacts__col-left {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 1280px) {
+  .chef__image {
+    max-width: 80%;
+  }
+  .reservation-popup {
+    width: 100%;
+    max-width: unset;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 32px;
+  }
+  .reservation-success-popup {
+    width: 100%;
+    max-width: unset;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  .contacts-popup {
+    padding: 64px 32px 32px;
+    width: 100%;
+    max-width: unset;
+    max-height: unset;
+  }
+  .popup__window {
+    width: 100%;
+    max-width: unset;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 64px 32px 32px;
+  }
+}
+@media (max-width: 1024px) {
+  .header,
+  .about,
+  .cuisine,
+  .chef,
+  .bar {
+    margin-bottom: 120px;
+  }
+  .header__buttons {
+    bottom: 60px;
+  }
+  .cuisine {
+    margin-bottom: 120px;
+  }
+  .reservation-success-popup__title {
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+  }
+  .about__col-left {
+    padding-top: 0;
+  }
+  .about__title {
+    margin-bottom: 16px;
+  }
+  .footer__contacts .contacts__col-left {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  }
+}
+@media (max-width: 768px) {
+  .popup__menu {
+    width: 70%;
+  }
+  .header__buttons {
+    bottom: 60px;
+  }
+  .chef__image {
+    max-width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+  h2, .title-2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+  }
+  p, .text-1 {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+  .input[type=date]:invalid::-webkit-datetime-edit,
+  .input[type=date]:invalid::datetime-edit {
+    color: transparent;
+  }
+  .layout {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .header {
+    margin-bottom: 120px;
+  }
+  .header__main {
+    width: 100vw;
+    position: relative;
+    left: -16px;
+  }
+  .header__slide {
+    background-size: auto 100%;
+  }
+  .header__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    left: 0;
+    right: 0;
+    padding: 0 16px;
+    transform: unset;
+    bottom: 120px;
+  }
+  .header__btn {
+    width: auto;
+  }
+  .navigation {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .navigation__wrapper {
+    flex-direction: row-reverse;
+  }
+  .navigation__languages {
+    display: none;
+  }
+  .navigation__burger {
+    transform: rotateY(-180deg);
+  }
+  .navigation__logo-wrapper {
+    width: 175px;
+    height: 24px;
+  }
+  .navigation__logo {
+    display: none;
+  }
+  .navigation__logo-small {
+    display: block;
+  }
+  .about {
+    flex-direction: column;
+    margin-bottom: 120px;
+  }
+  .about__col-left {
+    padding-top: 0;
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
+  .about__title {
+    margin-bottom: 16px;
+  }
+  .about__image-left {
+    display: none;
+  }
+  .cuisine {
+    margin-bottom: 120px;
+  }
+  .cuisine__title {
+    margin-bottom: 16px;
+  }
+  .cuisine__btn-menu {
+    margin-top: 32px;
+  }
+  .cuisine__photos {
+    flex-direction: column;
+  }
+  .cuisine__photos-1 {
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .cuisine__photos-2 {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .cuisine__photos-3 {
+    overflow: hidden;
+    aspect-ratio: 1/2;
+    margin-left: 0;
+  }
+  .cuisine__image-1 {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    transform: translateY(50%);
+  }
+  .cuisine__image-1 img {
+    aspect-ratio: 485/789;
+  }
+  .cuisine .btn__icon {
+    width: 16px;
+  }
+  .chef {
+    margin-bottom: 120px;
+  }
+  .chef__wrapper {
+    padding-top: 56px;
+    padding-bottom: 300px;
+    width: 100%;
+  }
+  .chef__image {
+    left: unset;
+    right: 0;
+    width: 280px;
+    max-width: unset;
+  }
+  .bar {
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 120px;
+  }
+  .bar__description-wrapper {
+    flex-shrink: 1;
+  }
+  .bar__col-left {
+    margin-right: 0;
+  }
+  .bar__col-right {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .bar__image {
+    width: 100%;
+  }
+  .bar__title {
+    margin-bottom: 16px;
+  }
+  .bar__description {
+    margin-bottom: 32px;
+  }
+  .footer__links {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .footer__links-wrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .contacts {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .contacts_popup {
+    padding: 0;
+  }
+  .contacts__wrapper {
+    flex-direction: column;
+    align-items: start;
+  }
+  .contacts_popup .layout {
+    padding: 0;
+  }
+  .contacts-popup {
+    height: 100%;
+    padding: 96px 16px 32px;
+  }
+  .contacts-popup__title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .contacts-popup__map {
+    aspect-ratio: 1/1;
+  }
+  .contacts-popup .contacts__wrapper {
+    gap: 0;
+  }
+  .menu-popup {
+    width: 100%;
+    padding-top: 0;
+  }
+  .menu-popup__wrapper {
+    padding-top: 110px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .menu-popup__item {
+    margin-bottom: 40px;
+  }
+  .menu-popup__item:first-child {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+  }
+  .menu-popup__item-languages {
+    display: block;
+    margin-top: 16px;
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+  }
+  .popup__close {
+    top: 16px;
+    right: 16px;
+  }
+  .popup__window {
+    height: 100%;
+    padding: 64px 16px 16px;
+  }
+  .reservation-popup {
+    padding: 0 16px 32px;
+  }
+  .reservation-popup__form {
+    grid-template-columns: 100%;
+  }
+  .reservation-popup__form-item-1, .reservation-popup__form-item-2, .reservation-popup__form-item-3, .reservation-popup__form-item-4, .reservation-popup__form-item-5 {
+    grid-row: unset;
+    grid-column: unset;
+  }
+  .reservation-popup__image {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+  }
+  .reservation-popup__title {
+    font-size: 1.8125rem;
+    letter-spacing: 0.3625rem;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .reservation-success-popup {
+    flex-direction: column;
+    height: 100%;
+    gap: 0;
+  }
+  .reservation-success-popup .icon-svg {
+    color: var(--canvas);
+  }
+  .reservation-success-popup__image {
+    aspect-ratio: 360/330;
+  }
+  .reservation-success-popup__text {
+    padding: 0 16px 56px;
+  }
+  .reservation-success-popup__text p {
+    font-size: 1.25rem;
+  }
+  .reservation-success-popup__title {
+    margin-top: 56px;
+  }
+  .footer__contacts .contacts__col-left {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+/*# sourceMappingURL=media.css.map */

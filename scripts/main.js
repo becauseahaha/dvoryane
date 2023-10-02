@@ -96,22 +96,23 @@ const cuisine = () => {
 }
 
 const headerSlider = () => {
-    const swiper = new Swiper('#header-slider', {
-        speed: 1000,
-        loop: true,
-        effect: "fade",
-        fadeEffect: {
-            crossFade: true
-        },
-        pagination: false,
-        simulateTouch: false,
-        allowSwipeToNext: false,
-        allowSwipeToPrev: false,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        }
-    })
+    const container = document.getElementById('header-slider');
+    const slides = container.querySelectorAll('.header__slide');
+    let i = 0, next_i = i+1, prev_i = slides.length-1;
+
+    function changeSlides() {
+        slides[prev_i].classList.remove('is-active');
+        slides[i].classList.add('is-active');
+        slides[i].classList.remove('is-next');
+        slides[next_i].classList.add('is-next');
+        prev_i = i;
+        i++;
+        if (i == slides.length) i = 0;
+        next_i = i+1;
+        if (next_i == slides.length) next_i = 0;
+    }
+    changeSlides();
+    setInterval(changeSlides, 5000);
 }
 
 const reservationForm = () => {
