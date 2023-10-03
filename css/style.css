@@ -1,7 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
   box-sizing: border-box;
+  color: inherit;
+  background: unset;
 }
 
 a {
@@ -9,13 +14,12 @@ a {
   color: inherit;
 }
 
-img {
-  vertical-align: bottom;
+button {
+  cursor: pointer;
 }
 
-input, select, button {
-  all: unset;
-  box-sizing: border-box;
+img {
+  vertical-align: bottom;
 }
 
 :root {
@@ -358,6 +362,7 @@ p, .text-1 {
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
+  cursor: pointer;
 }
 .btn_dark {
   color: var(--canvas);
@@ -532,6 +537,9 @@ p, .text-1 {
   padding-top: 35px;
   padding-bottom: 35px;
   background-color: var(--canvas);
+}
+.navigation__burger {
+  cursor: pointer;
 }
 .navigation__wrapper {
   display: flex;
@@ -759,6 +767,7 @@ p, .text-1 {
 .contacts__item {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 .contacts__icon {
   flex: 0 0 24px;
@@ -811,6 +820,9 @@ p, .text-1 {
   position: absolute;
   right: 40px;
   top: 40px;
+}
+.popup__close-btn {
+  cursor: pointer;
 }
 .popup__window {
   position: relative;

@@ -1,18 +1,23 @@
 * 
     margin: 0
     padding: 0
+    border: none
+    outline: none
+    box-shadow: none
     box-sizing: border-box
+    color: inherit
+    background: unset
 
 a
     text-decoration: none
     color: inherit
 
+button
+    cursor: pointer
+
 img
     vertical-align: bottom
 
-input, select, button
-    all: unset
-    box-sizing: border-box
 
 :root
     --canvas: rgba(250, 240, 222, 1)
@@ -253,6 +258,7 @@ p, .text-1
     justify-content: center
     align-items: center
     font-size: 1.25rem
+    cursor: pointer
     &_dark
         color: var(--canvas)
         background-color: var(--ochre)
@@ -394,6 +400,8 @@ p, .text-1
     padding-top: 35px
     padding-bottom: 35px
     background-color: var(--canvas)
+    &__burger
+        cursor: pointer
     &__wrapper
         display: flex
         justify-content: space-between
@@ -577,6 +585,7 @@ p, .text-1
     &__item
         display: flex
         align-items: center
+        white-space: nowrap
     &__icon
         flex: 0 0 24px
         width: 24px
@@ -628,6 +637,8 @@ p, .text-1
         position: absolute
         right: 40px
         top: 40px
+    &__close-btn
+        cursor: pointer
 
     &__window
         position: relative
